@@ -1,0 +1,4 @@
+# Lock packages for development
+# List individual packages here
+packages:
+  - sample_component
