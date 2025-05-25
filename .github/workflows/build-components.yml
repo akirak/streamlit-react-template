@@ -1,0 +1,34 @@
+name: Build the components
+
+on:
+  pull_request:
+    paths-ignore:
+      - 'README.*'
+
+  push:
+    branches:
+      - master
+    paths-ignore:
+      - 'README.*'
+
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
+
+      - name: Set up Nix
+        uses: ./.github/actions/setup
+
+      - name: Install the dependencies
+        run: nix develop -c pnpm install
+
+      - name: Build the components
+        run: nix develop -c just build-components
+
