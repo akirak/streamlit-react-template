@@ -6,15 +6,15 @@ from sample_component import sample_component
 # During development, we can run this just as we would any other Streamlit
 # app: `$ streamlit run sample_component/example.py`
 
-st.subheader("Component with constant args")
+_ = st.subheader("Component with constant args")
 
 # Create an instance of our component with a constant `name` arg, and
 # print its output value.
 num_clicks = sample_component("World")
-st.markdown("You've clicked %s times!" % int(num_clicks))
+_ = st.markdown("You've clicked %s times!" % int(num_clicks))
 
-st.markdown("---")
-st.subheader("Component with variable args")
+_ = st.markdown("---")
+_ = st.subheader("Component with variable args")
 
 # Create a second instance of our component whose `name` arg will vary
 # based on a text_input widget.
@@ -26,4 +26,4 @@ st.subheader("Component with variable args")
 # "name" argument without having it get recreated.
 name_input = st.text_input("Enter a name", value="Streamlit")
 num_clicks = sample_component(name_input, key="foo")
-st.markdown("You've clicked %s times!" % int(num_clicks))
+_ = st.markdown("You've clicked %s times!" % int(num_clicks))
