@@ -5,3 +5,4 @@ start: build-components
 # Build the components
 build-components:
     cd sample_component && pnpm run build
+    cd xyflow_component && pnpm run build
