@@ -3,3 +3,4 @@ __pycache__
 node_modules
 .direnv
 .venv
+tsconfig.tsbuildinfo

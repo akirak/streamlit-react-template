@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 import streamlit as st
 from sample_component import sample_component
+from xyflow_component import xyflow_component, Node, Edge
 
 # Add some test code to play with the component while it's in development.
 # During development, we can run this just as we would any other Streamlit
@@ -27,3 +28,15 @@ _ = st.subheader("Component with variable args")
 name_input = st.text_input("Enter a name", value="Streamlit")
 num_clicks = sample_component(name_input, key="foo")
 _ = st.markdown("You've clicked %s times!" % int(num_clicks))
+
+xyflow_component(
+    nodes=[
+        Node(
+            id="1",
+            position={"x": 0, "y": 0},  # 'position' expects a Position TypedDict
+            data={"label": "Hello"},  # 'data' expects a NodeData TypedDict
+        ),
+    ],
+    edges=[Edge(id="1-2", source="1", target="2")],
+    height="500px",
+)
