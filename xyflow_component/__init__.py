@@ -24,6 +24,9 @@ class Node:
     id: str
     position: Position
     data: NodeData
+    className: str | None = None
+    resizing: bool | None = None
+    focusable: bool | None = None
 
 
 @dataclass
@@ -31,6 +34,10 @@ class Edge:
     id: str
     source: str
     target: str
+    style: dict[str, str | int] | None = None
+    className: str | None = None
+    reconnectable: bool | None = None
+    focusable: bool | None = None
 
 
 def xyflow_component(nodes: list[Node], edges: list[Edge], height: str) -> None:
