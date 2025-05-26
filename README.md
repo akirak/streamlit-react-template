@@ -68,6 +68,7 @@ Then make the following changes:
   `package.json` in the `COMPONENT_DIR`.
 - Edit `COMPONENT_DIR/__init__.py` to customize the interface of the component.
 - Edit `justfile` to include a new build command in `build-components`.
+- Edit `pnpm-workspace.yaml` to include `COMPONENT_DIR`.
 
 ## Acknowledgements
 
