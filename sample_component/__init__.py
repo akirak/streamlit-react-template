@@ -3,6 +3,7 @@
 # SPDX-FileCopyrightText: 2018-2021 Streamlit Inc.
 
 import os
+from typing import cast
 import streamlit.components.v1 as components
 
 parent_dir = os.path.dirname(os.path.abspath(__file__))
@@ -16,7 +17,7 @@ _component_func = components.declare_component("sample_component", path=build_di
 # `declare_component` and call it done. The wrapper allows us to customize
 # our component's API: we can pre-process its input args, post-process its
 # output value, and add a docstring for users.
-def sample_component(name, key=None):
+def sample_component(name: str, key: str | None = None) -> int:
     """Create a new instance of "sample_component".
 
     Parameters
@@ -43,7 +44,7 @@ def sample_component(name, key=None):
     #
     # "default" is a special argument that specifies the initial return
     # value of the component before the user has interacted with it.
-    component_value = _component_func(name=name, key=key, default=0)
+    component_value = cast(int, _component_func(name=name, key=key, default=0))
 
     # We could modify the value returned from the component if we wanted.
     # There's no need to do this in our simple example - but it's an option.
