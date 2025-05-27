@@ -6,7 +6,8 @@ repository](https://github.com/streamlit/component-template/), but this one is
 tweaked to meet the following requirements:
 
 - It is a Nix flake which means it is a self-contained development environment
-  for the application.
+  for the application. It should work with/without Nix, whatever the
+  platform is.
 - It focuses on addition of custom (React) components, and it contains a
   a sample component which you can use as a starting point.
   - The React component template is updated to the latest React + Vite setup.
